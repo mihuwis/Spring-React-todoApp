@@ -11,16 +11,7 @@ import java.util.function.Predicate;
 public class ToDoService {
     private static List<Todo> todoList  = new ArrayList<>();
     private static long count = 0L;
-    static {
-        todoList.add(new Todo(++count, "Mihu", "Learn Spring",
-                LocalDate.now().plusMonths(2), false));
-        todoList.add(new Todo(++count, "Mihu", "Get job",
-                LocalDate.now().plusMonths(1), false));
-        todoList.add(new Todo(++count, "Ada", "Learn Adding",
-                LocalDate.now().plusMonths(4), false));
-        todoList.add(new Todo(++count, "Pablo", "Learn Pabling",
-                LocalDate.now().plusMonths(21), false));
-    }
+
 
     public List<Todo> findByUserName(String userName){
         return todoList.stream().filter(item -> item.getUsername().equals(userName)).toList();

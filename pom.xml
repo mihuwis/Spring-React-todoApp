@@ -44,13 +44,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-<!-- dependency for h2 - we are using mySql instead
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runetime</scope>
-			<version>2.2.220</version>
-		</dependency> -->
 
 		<dependency>
 			<groupId>com.mysql</groupId>
