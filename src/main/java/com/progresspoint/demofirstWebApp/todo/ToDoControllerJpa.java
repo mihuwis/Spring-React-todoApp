@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.time.LocalDate;
 import java.util.List;
-
-@Controller
-@SessionAttributes("name")
+// Ten Kontroler jest do wersji w której front jest na jsp
+// w katalogu webapp są pliki jsp które są tutaj zmapowane za pomocą
+// RequestMapping 
+//@Controller
+//@SessionAttributes("name")
 public class ToDoControllerJpa {
 
     private TodoRepository todoRepository;

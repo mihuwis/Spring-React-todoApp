@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-// Controllert is comented because we will use JPA
+// Controller is commented because we will use JPA
 //@Controller
 @SessionAttributes("name")
 public class ToDoController {
