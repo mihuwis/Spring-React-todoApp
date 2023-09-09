@@ -11,14 +11,14 @@ import java.time.LocalDate;
 public class Todo {
     @Id
     @GeneratedValue
-    private long id;
+    private Integer id;
     private String username;
     @Size(min=5, max = 150, message = "need more than 5 characters")
     private String description;
     private LocalDate targetDate;
     private boolean done;
 
-    public Todo(long id, String username, String description, LocalDate targetDate, boolean done) {
+    public Todo(Integer id, String username, String description, LocalDate targetDate, boolean done) {
         this.id = id;
         this.username = username;
         this.description = description;
@@ -29,11 +29,11 @@ public class Todo {
     public Todo() {
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
