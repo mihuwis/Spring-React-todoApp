@@ -23,7 +23,7 @@ public class ToDoService {
     }
 
     public List<Todo> findByUserName(String userName){
-        return todoList.stream().filter(item -> item.getUsername().equals(userName)).toList();
+        return todoList.stream().filter(item -> item.getUsername().equalsIgnoreCase(userName)).toList();
     }
 
     public void addTodo(String username, String description, LocalDate date, boolean isDone) {
