@@ -1,16 +1,11 @@
 package com.progresspoint.demofirstWebApp.todo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
-
 import java.time.LocalDate;
 
-@Entity
+
 public class Todo {
-    @Id
-    @GeneratedValue
+
     private long id;
     private String username;
     @Size(min=5, max = 150, message = "need more than 5 characters")
