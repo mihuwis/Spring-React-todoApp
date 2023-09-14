@@ -1,5 +1,6 @@
 package com.progresspoint.demofirstWebApp.jwt;
 
+import static org.springframework.security.config.Customizer.withDefaults;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
@@ -18,6 +19,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
@@ -51,8 +53,8 @@ public class JwtSecurityConfig {
         return httpSecurity
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers( AntPathRequestMatcher
-                                .antMatcher(HttpMethod.OPTIONS,"/authenticate")).permitAll()
-                        //  .requestMatchers(PathRequest.toH2Console()).permitAll()
+                                .antMatcher("/authenticate")).permitAll()
+                          .requestMatchers(PathRequest.toH2Console()).permitAll()
                         // h2-console is a servlet and NOT recommended for a production
                         .requestMatchers(AntPathRequestMatcher
                                 .antMatcher(HttpMethod.OPTIONS, "/**"))
@@ -63,11 +65,10 @@ public class JwtSecurityConfig {
                 .sessionManagement(session -> session.
                         sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .oauth2ResourceServer(
-                        OAuth2ResourceServerConfigurer::jwt)
+                        (oauth2) -> oauth2.jwt(withDefaults()))
                 .httpBasic(
                         Customizer.withDefaults())
-                .headers(header -> {header.
-                        frameOptions().sameOrigin();})
+                .headers(header -> {header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin);})
                 .build();
     }
 
