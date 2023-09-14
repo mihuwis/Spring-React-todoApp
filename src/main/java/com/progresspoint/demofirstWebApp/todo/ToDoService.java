@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-@Service
+//@Service
 public class ToDoService {
     private static List<Todo> todoList  = new ArrayList<>();
     private static Integer count = 0;
